@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="site-wrapper">
+
+	<div class="site-wrapper-inner">
+
+		<div class="cover-container">
+
+			<div class="page-header">
+        <h1>Movie Classification</h1>
+      </div>
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="180000">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item active col-xs-12 col-sm-12 col-md-12">
+            <img src="../static/images/thenotebook.jpg" alt="First slide" class="image-toshi" />　
+          </div>
+          <div class="item col-xs-12 col-sm-12 col-md-12">
+            <!--<img data-src="holder.js/1140x500/autok#666/1140x500/auto/#555:#333/text:First slide:#444/text:Second slide" alt="Second slide">-->
+						<iframe width="500" height="282" src="https://www.youtube.com/embed/yDJIcYE32NU" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="item col-xs-12 col-sm-12 col-md-12">
+            <img src="../static/images/thenote.jpg" alt="Third slide" class="image-three">
+          </div>
+        </div>
+        <a class="left carousel-control col-xs-12 col-sm-6 col-md-3" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control col-xs-12 col-sm-6 col-md-3" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+
+			<!--<div class="inner cover">-->
+				<h1 class="cover-heading top-distance">Please watch the video <br>and enter your movie review:</h1>
+				<p class="lead" style="margin-top: 40px;">This will classify your review as positive or negative automatically.</p>
+				<p class="lead">(Note: Write more than 15 letters otherwise an error occurs.)</p>
+				{% from "_formhelpers.html" import render_field %}
+			<!--</div>-->
+			<form method=post action="/results">
+					<dl>
+						{{ render_field(form.moviereview, cols='50', rows='3') }}
+					</dl>
+					<div>
+						<input type=submit value='Submit review' name='submit_btn' class="under-distance btn btn-lg btn-default">
+					</div>
+			</form>
+
+			<div class="mastfoot">
+				<div class="inner">
+					<p>made by <a href="http://toshi-kun.com">Toshimitsu Kugimoto</a>. Twitter: <a href="https://twitter.com/tottiiiiiii">@tottiiiiiii</a>.</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+		<h1>Your movie review:</h1>
+		<div><h2>[   {{ content }}   ]</h2></div>
+
+		<div class="prediction">
+		<h1>Prediction:</h1>
+		<div><h2>This movie review is
+			{% if prediction == "positive" %}
+				<strong style="color: yellow">{{ prediction }}</strong>
+			{% else %}
+				<strong style="color: cyan">{{ prediction }}</strong>
+			{% endif %}
+						( probability: {{ probability }}% ).</h2></div>
+		</div>
+
+		<div class='bupton'>
+			<form action="/thanks" method="post">
+				<input type=submit value='Correct' name='feedback_button' class="btn btn-lg btn-default correct" >
+				<input type=submit value='Incorrect' name='feedback_button' class="btn btn-lg btn-default incorrect">
+				<input type=hidden value='{{ prediction }}' name='prediction'>
+				<input type=hidden value='{{ content }}' name='review'>
+			</form>
+		</div>
+
+		<div class='button'>
+			<form action="/">
+				<input type=submit value='Submit another review' class="btn btn-lg btn-default" style="margin-top: 20px; margin-bottom: 60px;">
+			</form>
+		</div>
+
+		<div class="mastfoot" style="margin-left: auto; margin-right: auto;">
+			<div class="inner" style="margin-right: auto; margin-left: auto;">
+				<p>made by <a href="http://toshi-kun.com">Toshimitsu Kugimoto</a>. Twitter: <a href="https://twitter.com/tottiiiiiii">@tottiiiiiii</a>.</p>
+			</div>
+		</div>
+{% endblock %}
